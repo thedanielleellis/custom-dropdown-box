@@ -25,6 +25,14 @@ function setupCustomElement(select){
     select.customElement.append(select.optionsCustomElement)
 }
 
+//outside of class, convert option elements to array to use map b/c its not avaiable with querySelectorAll, oop through option elements, 
 function getFormattedOptions(optionElements) {
-
+    [...optionsElements].map(optionElement => {
+        return {
+            value:optionElement.value,
+            label: optionElement.label,
+            selected: optionElement.selected,
+            element: optionElement
+        }
+    })
 }
